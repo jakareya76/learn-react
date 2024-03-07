@@ -1,9 +1,11 @@
-function App() {
+import Navbar from "./components/Navbar";
+
+const App = () => {
   return (
-    <>
-      <h1 className="text-5xl font-bold font-mono">Hello World</h1>
-    </>
+    <div className="container mx-auto">
+      <Navbar />
+    </div>
   );
-}
+};
 
 export default App;
