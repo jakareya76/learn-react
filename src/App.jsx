@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 
 const App = () => {
-  const world = "World";
+  const [count, setCount] = useState(0);
 
   const navList = ["Home", "About", "Blog", "Contact"];
 
@@ -14,12 +15,29 @@ const App = () => {
     alert(num + 5);
   };
 
+  const handleCount = () => {
+    setCount((prev) => {
+      return prev + 1;
+    });
+  };
+
+  useEffect(() => {
+    const fetchDataFormApi = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const data = await res.json();
+
+      console.log(data);
+    };
+
+    fetchDataFormApi();
+  }, []);
+
   return (
     <div className="container mx-auto">
       <Navbar navList={navList} />
 
       <div className="font-mono text-xl font-semibold">
-        <h2>Hello {world}</h2>
+        <h2>Hello World</h2>
       </div>
 
       <button
@@ -34,6 +52,13 @@ const App = () => {
         className="px-5 py-3 mx-5 my-5 font-semibold bg-gray-200 rounded-xl text-zinc-800"
       >
         Add Sum
+      </button>
+
+      <button
+        onClick={handleCount}
+        className="px-5 py-3 mx-5 my-5 font-semibold bg-gray-200 rounded-xl text-zinc-800"
+      >
+        Count - {count}
       </button>
     </div>
   );
