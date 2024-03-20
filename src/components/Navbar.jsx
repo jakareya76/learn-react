@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between p-8">
@@ -6,9 +8,9 @@ const Navbar = () => {
       </div>
       <div>
         <ul className="flex items-center justify-center space-x-4">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </ul>
       </div>
     </nav>
