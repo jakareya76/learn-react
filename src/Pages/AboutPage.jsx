@@ -1,27 +1,17 @@
+import { useLoaderData } from "react-router-dom";
+import User from "../components/User";
+
 const AboutPage = () => {
+  const users = useLoaderData();
+
   return (
     <div className="p-5">
-      <h1 className="text-3xl font-semibold">This is About Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis saepe
-        soluta praesentium temporibus ipsa, totam tempora incidunt, quam cumque
-        itaque ea ullam quae odio error accusantium quidem sed quibusdam neque!
-      </p>
+      <h1 className="text-3xl font-semibold">This is About Page.</h1>
+      <div className="grid grid-cols-3 gap-4 mt-8">
+        {users.map((user) => {
+          return <User key={user.id} user={user} />;
+        })}
+      </div>
     </div>
   );
 };
